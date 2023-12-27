@@ -1,10 +1,11 @@
 import "./styles.css";
+import { useState } from "react";
 
 export default function App() {
-  let isActive = false;
-
+  const [isActive, setIsActive] = useState(false);
+  const text = isActive ? "Active" : "Inactive";
   function handleClick() {
-    isActive = !isActive;
+    setIsActive(!isActive);
     // Check that the value changes correctly.
     console.log(isActive);
   }
@@ -12,7 +13,7 @@ export default function App() {
   return (
     <main>
       <div className={`box ${isActive ? "box--active" : ""}`} />
-      <button onClick={handleClick}>Activate</button>
+      <button onClick={handleClick}>{text}</button>
     </main>
   );
 }
